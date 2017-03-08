@@ -73,9 +73,9 @@ gulp.task('html', function(){
 gulp.task('coffee', function() {
   gulp.src(coffeeSources)
     .pipe(coffee({bare: true}))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('js'))
+    .pipe(gulp.dest('test'))
     .pipe(browserSync.reload({
       stream: true
     }));
