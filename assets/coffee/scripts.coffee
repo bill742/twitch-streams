@@ -1,1 +1,2 @@
-console.log 'coffee script compiled'
+$( document ).ready ->
+  console.log ('hi')

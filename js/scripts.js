@@ -1,1 +1,1 @@
-console.log("coffee script compiled");
+$(document).ready(function(){$.getJSON("https://wind-bow.gomix.me/twitch-api/users/freecodecamp?callback=?",function(c){console.log(c)})});
