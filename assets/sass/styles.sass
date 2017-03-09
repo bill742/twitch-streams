@@ -11,6 +11,7 @@ $black: #000
     margin-bottom: 10px
     background-color: $grey
 
+
 body
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif
 
@@ -24,14 +25,16 @@ h1
     display: block
     margin: 20px auto
     width: 80%
+    max-width: 900px
 
     .streams
-        width: 90%
+        width: 100%
         float: left
 
         .stream-block
             @include block
             background-position: center center
+            background-repeat: no-repeat
 
             .logo
                 width: 80px
