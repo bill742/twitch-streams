@@ -16,7 +16,7 @@ channel = function(username, background, logo, name, channelUrl) {
       if (channelStream !== null) {
         channelStatus = "online";
       }
-      return feedList.innerHTML += "<div class='stream-block' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><p>Status: " + channelStatus + "</p><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a></div>";
+      return feedList.innerHTML += "<div class='stream-block' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p></div>";
     },
     error: function(errorMessage) {
       return feedList.innerHTML += "<div class='stream-block'><p>Error: Status not found</p></div>";

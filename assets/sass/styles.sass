@@ -14,6 +14,7 @@ $black: #000
 
 body
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif
+  font-size: 2em
 
 h1
   margin: 20px 0
@@ -45,18 +46,23 @@ h1
                 border: 1px solid $black
 
             h3
+                display: inline-block
                 margin-top: 10px
-                font-size: 30px
+                font-size: 1em
                 color: $white
 
             p
                 color: $white
+                font-size: 0.8em
+                line-height: 150%
 
-    .status
-        width: 10%
-        float: right
+            .link
+                float: right
+                margin-right: 10px
+                padding: 10px
+                color: $white
+                text-decoration: none
+                background-color: $black
 
-        .status-block
-            @include block
-            position: relative
-            left: -10%
+                &:hover
+                    background-color: blue
