@@ -10,7 +10,7 @@ function channel(username, background, logo, name, channelUrl) {
     }
 
     // return channelStatus;
-    feedList.innerHTML += "<div class='stream-block' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><p>Status: " + channelStatus + "</p><p><a href='" + channelUrl + "'>View Channel</a></p></div>";
+    feedList.innerHTML += "<div class='stream-block' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><p>Status: " + channelStatus + "</p><a href='" + channelUrl + "' class='link'>View Channel</a></div>";
   });
 }
 

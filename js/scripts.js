@@ -1,1 +1,59 @@
-function channel(e,n,a,t,i){var l="https://wind-bow.gomix.me/twitch-api/streams/"+e+"?callback=?";$.getJSON(l,function(e){var l="offline",o=e.stream;null!==o&&(l="online"),feedList.innerHTML+="<div class='stream-block' style='background-image: url("+n+");'><img src ='"+a+"' alt='"+t+"' class='logo'><h3>"+t+"</h3><p>Status: "+l+"</p><p><a href='"+i+"'>View Channel</a></p></div>"})}function getFeeds(){var e=["freecodecamp","noobs2ninjas","habathcx","medrybw"];e=e.sort();for(var n="",a=0;a<e.length;a++)n="https://wind-bow.gomix.me/twitch-api/channels/"+e[a]+"?callback=?",$.getJSON(n,function(e){var n,a=e.display_name,t=e.logo,i=e.url,l=e.profile_banner;n=null!==e.profile_banner?l:"/images/twitch-bg.png";var o=e.name;document.getElementById("feedList");channel(o,n,t,a,i)})}getFeeds();
+var channel;
+
+channel = function(username, background, logo, name, channelUrl) {
+  var stream;
+  stream = "";
+  return $.ajax({
+    type: "GET",
+    url: "https://wind-bow.gomix.me/twitch-api/streams/" + username + "?callback=?",
+    contentType: "application/json; charset=utf-8",
+    async: false,
+    dataType: "json",
+    success: function(channels, textStatus, jqXHR) {
+      var channelStatus, channelStream;
+      channelStatus = "offline";
+      channelStream = channels.stream;
+      if (channelStream !== null) {
+        channelStatus = "online";
+      }
+      return feedList.innerHTML += "<div class='stream-block' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><p>Status: " + channelStatus + "</p><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a></div>";
+    },
+    error: function(errorMessage) {
+      return feedList.innerHTML += "<div class='stream-block'><p>Error: Status not found</p></div>";
+    }
+  });
+};
+
+var getFeeds;
+
+getFeeds = function() {
+  var feeds, i, results, url;
+  feeds = ['freecodecamp', 'noobs2ninjas', 'habathcx', 'medrybw'];
+  feeds = feeds.sort();
+  url = "";
+  i = 0;
+  results = [];
+  while (i < feeds.length) {
+    url = "https://wind-bow.gomix.me/twitch-api/channels/" + feeds[i] + "?callback=?";
+    $.getJSON(url, function(data) {
+      var background, bannerBg, channelUrl, feedList, logo, name, username;
+      name = data.display_name;
+      logo = data.logo;
+      channelUrl = data.url;
+      background;
+      bannerBg = data.profile_banner;
+      if (data.profile_banner !== null) {
+        background = bannerBg;
+      } else {
+        background = "/images/twitch-bg.png";
+      }
+      username = data.name;
+      feedList = document.getElementById('feedList');
+      return channel(username, background, logo, name, channelUrl);
+    });
+    results.push(i++);
+  }
+  return results;
+};
+
+getFeeds();
