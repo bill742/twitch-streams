@@ -5,11 +5,11 @@ $black: #000
 
 // Mixins
 @mixin block
-    width: 100%
-    height: 100px
-    display: inline-block
-    margin-bottom: 10px
-    background-color: $grey
+  width: 100%
+  height: 100px
+  display: inline-block
+  margin-bottom: 10px
+  background-color: $grey
 
 
 body
@@ -23,40 +23,47 @@ h1
 
 // Feed List
 .wrapper
-    display: block
-    margin: 20px auto
-    width: 80%
-    max-width: 900px
+  display: block
+  margin: 20px auto
+  width: 80%
+  max-width: 900px
+
+  .status
+    display: flex
 
     .filter
-        display: inline-block
-        padding: 10px
-        margin-bottom: 10px
-        width: 30%
-        border: 1px solid $black
-        text-align: center
-        cursor: pointer
+      flex: 1 0 0
+      padding: 10px
+      margin-bottom: 10px
+      border-top: 1px solid $black
+      border-right: 1px solid $black
+      border-bottom: 1px solid $black
+      text-align: center
+      cursor: pointer
 
-        &:hover
-            background-color: $black
-            color: $white
+      &:hover
+        background-color: $black
+        color: $white
+
+      &:first-child
+        border-left: 1px solid $black
 
     .streams
-        width: 100%
+      width: 100%
+      float: left
+
+    .stream-block
+      @include block
+      background-position: center center
+      background-repeat: no-repeat
+
+      .logo
+        width: 80px
+        height: auto
+        margin: 10px
         float: left
-
-        .stream-block
-            @include block
-            background-position: center center
-            background-repeat: no-repeat
-
-            .logo
-                width: 80px
-                height: auto
-                margin: 10px
-                float: left
-                border-radius: 50%
-                border: 1px solid $black
+        border-radius: 50%
+        border: 1px solid $black
 
             h3
                 display: inline-block
