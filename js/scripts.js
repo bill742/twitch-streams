@@ -10,13 +10,19 @@ channel = function(username, background, logo, name, channelUrl) {
     async: false,
     dataType: "json",
     success: function(channels, textStatus, jqXHR) {
-      var channelStatus, channelStream;
+      var channelStatus, channelStream, streamStatus;
       channelStatus = "offline";
       channelStream = channels.stream;
+      streamStatus = "";
       if (channelStream !== null) {
         channelStatus = "online";
+        streamStatus = channels.stream.channel.status;
       }
-      return feedList.innerHTML += "<div class='stream-block " + channelStatus + "' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p></div>";
+      if (name === void 0) {
+
+      } else {
+        return feedList.innerHTML += "<div class='stream-block " + channelStatus + "' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p><p>" + streamStatus + "</p></div>";
+      }
     },
     error: function(errorMessage) {
       return feedList.innerHTML += "<div class='stream-block'><p>Error: Status not found</p></div>";
@@ -28,7 +34,7 @@ var getFeeds;
 
 getFeeds = function() {
   var feeds, i, results, url;
-  feeds = ['freecodecamp', 'noobs2ninjas', 'habathcx', 'medrybw'];
+  feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas'];
   feeds = feeds.sort();
   url = "";
   i = 0;

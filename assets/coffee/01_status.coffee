@@ -10,10 +10,16 @@ channel = (username, background, logo, name, channelUrl) ->
       success: (channels, textStatus, jqXHR) ->
           channelStatus = "offline"
           channelStream = channels.stream
+          streamStatus = ""
 
           if channelStream != null
               channelStatus = "online"
+              streamStatus = channels.stream.channel.status
 
-          feedList.innerHTML += "<div class='stream-block " + channelStatus + "' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p></div>"
+          if name == undefined
+            # do nothing
+          else
+            feedList.innerHTML += "<div class='stream-block " + channelStatus + "' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p><p>" + streamStatus + "</p></div>"
+
       error: (errorMessage) ->
           feedList.innerHTML += "<div class='stream-block'><p>Error: Status not found</p></div>"
