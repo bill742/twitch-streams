@@ -2,6 +2,7 @@
 $white: #fff
 $grey: #ccc
 $black: #000
+$blue: #0ff
 
 // Mixins
 @mixin block
@@ -28,64 +29,64 @@ h1
   width: 80%
   max-width: 900px
 
-  .status
-    display: flex
+.status
+  display: flex
 
-    .filter
-      flex: 1 0 0
+  .filter
+    flex: 1 0 0
+    padding: 10px
+    margin-bottom: 10px
+    border-top: 1px solid $black
+    border-right: 1px solid $black
+    border-bottom: 1px solid $black
+    text-align: center
+    cursor: pointer
+
+    &:hover
+      background-color: $black
+      color: $white
+
+    &:first-child
+      border-left: 1px solid $black
+
+.streams
+  width: 100%
+  float: left
+
+  .stream-block
+    @include block
+    background-position: center center
+    background-repeat: no-repeat
+
+    .logo
+      width: 80px
+      height: auto
+      margin: 10px
+      float: left
+      border-radius: 50%
+      border: 1px solid $black
+
+    h3
+      display: inline-block
+      margin-top: 10px
+      font-size: 1.5em
+      color: $white
+
+    p
+      color: $white
+      font-size: 1.2em
+      line-height: 150%
+
+    .link
+      float: right
+      margin-right: 10px
       padding: 10px
-      margin-bottom: 10px
-      border-top: 1px solid $black
-      border-right: 1px solid $black
-      border-bottom: 1px solid $black
-      text-align: center
-      cursor: pointer
+      color: $white
+      text-decoration: none
+      background-color: $black
 
       &:hover
-        background-color: $black
-        color: $white
+        background-color: $blue
 
-      &:first-child
-        border-left: 1px solid $black
-
-    .streams
-      width: 100%
-      float: left
-
-    .stream-block
-      @include block
-      background-position: center center
-      background-repeat: no-repeat
-
-      .logo
-        width: 80px
-        height: auto
-        margin: 10px
-        float: left
-        border-radius: 50%
-        border: 1px solid $black
-
-            h3
-                display: inline-block
-                margin-top: 10px
-                font-size: 1.5em
-                color: $white
-
-            p
-                color: $white
-                font-size: 1.2em
-                line-height: 150%
-
-            .link
-                float: right
-                margin-right: 10px
-                padding: 10px
-                color: $white
-                text-decoration: none
-                background-color: $black
-
-                &:hover
-                    background-color: blue
-
-        .hide
-            display: none
+    .hide
+      display: none
