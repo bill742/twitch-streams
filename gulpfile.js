@@ -64,9 +64,8 @@ gulp.task('html', function(){
 gulp.task('images', function(){
 	gulp.src('images/*')
     .pipe(imagemin())
-    .pipe(gulp.dest('images'))
+    .pipe(gulp.dest('images'));
 });
-
 
 gulp.task('coffee', function() {
   gulp.src(coffeeSources)
