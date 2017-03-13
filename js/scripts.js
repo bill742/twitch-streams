@@ -21,7 +21,7 @@ channel = function(username, background, logo, name, channelUrl) {
       if (name === void 0) {
 
       } else {
-        return feedList.innerHTML += "<div class='stream-block " + channelStatus + "' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><h3>" + name + "</h3><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a><p>Status: " + channelStatus + "</p><p>" + streamStatus + "</p></div>";
+        return feedList.innerHTML += "<div class='stream-block " + channelStatus + "'><div class='stream-block-top' style='background-image: url(" + background + ");'><img src ='" + logo + "' alt='" + name + "' class='logo'><a href='" + channelUrl + "' target='_blank' class='link'>View Channel</a></div><div class='stream-block-bottom'><h3>" + name + "</h3><p>Status: " + channelStatus + "</p><p>" + streamStatus + "</p></div></div>";
       }
     },
     error: function(errorMessage) {
