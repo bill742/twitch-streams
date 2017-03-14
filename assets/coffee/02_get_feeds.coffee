@@ -1,6 +1,10 @@
 getFeeds = ->
     feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
-    feeds = feeds.sort()
+    # sorted = feeds.sort()
+
+    sorted = feeds.sort()
+
+
     url = ""
 
     # feeds1 = ['ESL_SC2', 'OgamingSC2'].sort (a, b) ->
@@ -11,27 +15,29 @@ getFeeds = ->
     # console.log feeds1
 
     i = 0
-    while i < feeds.length
+    while i < sorted.length
 
-        url = "https://wind-bow.gomix.me/twitch-api/channels/" + feeds[i] + "?callback=?"
+      console.log sorted
 
-        $.getJSON url, (data)->
-            # console.log data
-            name = data.display_name
-            logo = data.logo
-            channelUrl = data.url
-            background
-            bannerBg = data.profile_banner
+      url = "https://wind-bow.gomix.me/twitch-api/channels/" + sorted[i] + "?callback=?"
 
-            if data.profile_banner != null
-              background = bannerBg
-            else
-              background = "/images/twitch-bg.png"
+      $.getJSON url, (data)->
+          # console.log data
+          name = data.display_name
+          logo = data.logo
+          channelUrl = data.url
+          background
+          bannerBg = data.profile_banner
 
-            username = data.name
-            feedList = document.getElementById('feedList')
+          if data.profile_banner != null
+            background = bannerBg
+          else
+            background = "/images/twitch-bg.png"
 
-            channel(username, background, logo, name, channelUrl)
+          username = data.name
+          feedList = document.getElementById('feedList')
+
+          channel(username, background, logo, name, channelUrl)
 
         i++
 

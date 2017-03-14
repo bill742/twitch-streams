@@ -6,7 +6,7 @@ $primary: #ff8000
 $secondary: #0000ff
 $primary-transparent: rgba(0, 0, 0, .2)
 
-$mobile: 600px
+$mobile: 980px
 
 // Mixins
 @mixin block
@@ -46,10 +46,12 @@ header
   .status
     display: flex
     flex-direction: row
+    // align-items: center
     margin: 0 20px
 
     @media (min-width: $mobile)
       flex-direction: column
+      // align-items: initial
 
     .filter
       flex: 1 0 0
@@ -62,13 +64,18 @@ header
       cursor: pointer
       background-color: $primary
       color: $white
+      line-height: 120%
 
       &:hover
         background-color: $white
         color: $primary
 
       &:first-child
-        border-left: 1px solid $primary
+        border-left: 1px solid $grey
+        // line-height: 32px
+
+      @media (min-width: $mobile)
+         border: 1px solid $grey
 
 // Feed List
 .wrapper
@@ -79,11 +86,10 @@ header
     width: 70%
 
 .streams
-  // width: 100%
   display: flex
   flex-wrap: wrap
   flex-direction: column
-  padding: 30px
+  padding: 20px 30px
 
   @media (min-width: $mobile)
     flex-direction: row
@@ -91,17 +97,12 @@ header
   .stream-block
     @include block
     flex: 1 0 0
-
-    // box-shadow: .5px 0 .5px .5px $primary-transparent
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px $primary-transparent
     background-color: $white
 
     @media (min-width: $mobile)
       flex: 1 0 40%
-      margin-left: 10px
-
-      &:nth-child(odd)
-        margin-left: 0
+      margin: 10px
 
     .stream-block-top
       background-position: center center
@@ -118,7 +119,7 @@ header
 
       .link
         float: right
-        margin: 26px
+        margin: 26px 10px
         padding: 15px
         color: $white
         text-decoration: none
@@ -142,11 +143,25 @@ header
         font-size: 1.2em
         line-height: 150%
 
+        span
+          color: $black
+
       .stream
-        display: none
+        // display: none
 
   .hide
     display: none
+
+#lean_overlay
+  // position: fixed
+  z-index: 100
+  top: 0px
+  left: 50%
+  height: 50%
+  width: 50%
+  background: #000
+  color: #fff
+  display: none
 
 footer
   clear: both
