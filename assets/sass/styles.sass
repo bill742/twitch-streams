@@ -1,15 +1,15 @@
 // Variables
 $white: #fff
-$grey: #ccc
 $black: #000
-$blue: #0ff
-$black-transparent: rgba(0, 0, 0, .2)
+$grey: #ccc
+$primary: #ff8000
+$secondary: #0000ff
+$primary-transparent: rgba(0, 0, 0, .2)
+
+$mobile: 600px
 
 // Mixins
 @mixin block
-  // width: 100%
-  // // height: 100px
-  // display: inline-block
   margin-bottom: 30px
   background-color: $grey
 
@@ -19,72 +19,89 @@ body
   font-size: 16px
 
 header
-  position: fixed
-  width: 30%
-  height: 100%
-  // float: left
   padding: 30px 0
-  background-color: $grey
+  background-color: $white
+
+  @media (min-width: $mobile)
+    position: fixed
+    width: 30%
+    height: 100%
 
   h1
-    margin-bottom: 20px
+    margin-bottom: 30px
+    padding: 0 30px
     font-size: 24px
+    font-weight: bold
     text-align: center
-    color: $white
+    color: $primary
 
   h2
-    margin-bottom: 20px
+    margin-bottom: 30px
+    padding: 0 30px
     font-size: 20px
     line-height: 150%
     text-align: center
-    color: $white
+    color: $black
 
   .status
     display: flex
+    flex-direction: row
     margin: 0 20px
+
+    @media (min-width: $mobile)
+      flex-direction: column
 
     .filter
       flex: 1 0 0
       padding: 10px
       margin-bottom: 30px
-      border-top: 1px solid $black
-      border-right: 1px solid $black
-      border-bottom: 1px solid $black
+      border-top: 1px solid $grey
+      border-right: 1px solid $grey
+      border-bottom: 1px solid $grey
       text-align: center
       cursor: pointer
+      background-color: $primary
+      color: $white
 
       &:hover
-        background-color: $black
-        color: $white
+        background-color: $white
+        color: $primary
 
       &:first-child
-        border-left: 1px solid $black
+        border-left: 1px solid $primary
 
 // Feed List
 .wrapper
-  // display: block
-  // margin: 0 auto
-  float: right
-  width: 70%
-  max-width: 900px
-  background-color: $white
+  background-color: $grey
+
+  @media (min-width: $mobile)
+    float: right
+    width: 70%
 
 .streams
   // width: 100%
   display: flex
   flex-wrap: wrap
-  flex-direction: row
+  flex-direction: column
   padding: 30px
+
+  @media (min-width: $mobile)
+    flex-direction: row
 
   .stream-block
     @include block
-    flex: 1 0 40%
-    margin-left: 10px
-    box-shadow: .5px 0 .5px .5px $black-transparent
+    flex: 1 0 0
+
+    // box-shadow: .5px 0 .5px .5px $primary-transparent
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px $primary-transparent
     background-color: $white
 
-    &:nth-child(odd)
-      margin-left: 0
+    @media (min-width: $mobile)
+      flex: 1 0 40%
+      margin-left: 10px
+
+      &:nth-child(odd)
+        margin-left: 0
 
     .stream-block-top
       background-position: center center
@@ -97,18 +114,19 @@ header
         margin: 10px
         float: left
         border-radius: 50%
-        border: 1px solid $black
+        border: 1px solid $primary
 
       .link
         float: right
-        padding: 10px
+        margin: 26px
+        padding: 15px
         color: $white
         text-decoration: none
-        background-color: $black
+        background-color: $primary
         border: 1px solid $white
 
         &:hover
-          background-color: $blue
+          background-color: $secondary
 
     .stream-block-bottom
       padding: 10px
@@ -117,16 +135,20 @@ header
         display: inline-block
         margin-top: 10px
         font-size: 1.5em
+        line-height: 150%
 
       p
-        color: $black
+        color: $primary
         font-size: 1.2em
         line-height: 150%
+
+      .stream
+        display: none
 
   .hide
     display: none
 
 footer
   clear: both
-  height: 40px
-  background-color: $black
+  // height: 40px
+  // background-color: $primary
