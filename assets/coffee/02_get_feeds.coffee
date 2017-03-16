@@ -1,28 +1,19 @@
 getFeeds = ->
     feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
-    # sorted = feeds.sort()
 
-    sorted = feeds.sort()
-
+    feeds.sort (a, b) ->
+      a.toLowerCase().localeCompare b.toLowerCase()
 
     url = ""
 
-    # feeds1 = ['ESL_SC2', 'OgamingSC2'].sort (a, b) ->
-    #   a.toLowerCase().localeCompare b.toLowerCase()
-    # return
-
-    # feeds1 = feeds.sort()
-    # console.log feeds1
+    console.log feeds
 
     i = 0
-    while i < sorted.length
+    while i < feeds.length
 
-      console.log sorted
-
-      url = "https://wind-bow.gomix.me/twitch-api/channels/" + sorted[i] + "?callback=?"
+      url = "https://wind-bow.gomix.me/twitch-api/channels/" + feeds[i] + "?callback=?"
 
       $.getJSON url, (data)->
-          # console.log data
           name = data.display_name
           logo = data.logo
           channelUrl = data.url

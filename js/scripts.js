@@ -3,6 +3,7 @@ var channel;
 channel = function(username, background, logo, name, channelUrl) {
   var stream;
   stream = "";
+  console.log(name);
   return $.ajax({
     type: "GET",
     url: "https://wind-bow.gomix.me/twitch-api/streams/" + username + "?callback=?",
@@ -39,15 +40,17 @@ channel = function(username, background, logo, name, channelUrl) {
 var getFeeds;
 
 getFeeds = function() {
-  var feeds, i, results, sorted, url;
+  var feeds, i, results, url;
   feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas'];
-  sorted = feeds.sort();
+  feeds.sort(function(a, b) {
+    return a.toLowerCase().localeCompare(b.toLowerCase());
+  });
   url = "";
+  console.log(feeds);
   i = 0;
   results = [];
-  while (i < sorted.length) {
-    console.log(sorted);
-    url = "https://wind-bow.gomix.me/twitch-api/channels/" + sorted[i] + "?callback=?";
+  while (i < feeds.length) {
+    url = "https://wind-bow.gomix.me/twitch-api/channels/" + feeds[i] + "?callback=?";
     $.getJSON(url, function(data) {
       var background, bannerBg, channelUrl, feedList, logo, name, username;
       name = data.display_name;
