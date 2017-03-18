@@ -21,7 +21,7 @@ getFeeds = ->
           if data.profile_banner != null
             background = bannerBg
           else
-            background = "/images/twitch-bg.png"
+            background = "https://raw.githubusercontent.com/bill742/twitch-streams/master/images/twitch-bg.png"
 
           username = data.name
           feedList = document.getElementById('feedList')
