@@ -6,8 +6,6 @@ getFeeds = ->
 
     url = ""
 
-    console.log feeds
-
     i = 0
     while i < feeds.length
 
@@ -17,7 +15,7 @@ getFeeds = ->
           name = data.display_name
           logo = data.logo
           channelUrl = data.url
-          background
+          background = ""
           bannerBg = data.profile_banner
 
           if data.profile_banner != null

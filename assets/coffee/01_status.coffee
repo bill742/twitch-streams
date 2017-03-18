@@ -1,9 +1,6 @@
 channel = (username, background, logo, name, channelUrl) ->
     stream = ""
 
-    # name1 = name.sort()
-    console.log name
-
     $.ajax
       type: "GET"
       url: "https://wind-bow.gomix.me/twitch-api/streams/" + username + "?callback=?"
@@ -11,7 +8,6 @@ channel = (username, background, logo, name, channelUrl) ->
       async: false
       dataType: "json"
       success: (channels, textStatus, jqXHR) ->
-        # console.log channelUrl
         channelStatus = "offline"
         channelStream = channels.stream
         streamStatus = ""
