@@ -1,0 +1,96 @@
+// Feed List
+.wrapper
+
+  @media (min-width: $mobile)
+    float: right
+    width: 70%
+
+.streams
+  display: flex
+  flex-wrap: wrap
+  flex-direction: column
+  padding: 20px 30px
+
+  @media (min-width: $mobile)
+    flex-direction: row
+
+  .stream-block
+    @include block
+    flex: 1 0 0
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px $primary-transparent
+    background-color: $white
+
+    @media (min-width: $mobile)
+      flex: 1 0 40%
+      margin: 10px
+
+    .stream-block-top
+      background-position: center center
+      background-repeat: no-repeat
+      height: 102px
+
+      .logo
+        width: 80px
+        height: auto
+        margin: 10px
+        float: left
+        border-radius: 50%
+        border: 1px solid $primary
+
+    .stream-block-bottom
+      padding: 20px
+      overflow: auto
+
+      h3
+        float: left
+        display: inline-block
+        margin-bottom: 20px
+        font-size: 1.5em
+        line-height: 48px
+
+      p
+        float: left
+        clear: both
+        color: $primary
+        font-size: 1.2em
+        line-height: 150%
+
+        span
+          color: $black
+
+      .link
+        display: block
+        width: 50%
+        margin: 10px auto
+        padding: 15px
+        color: $white
+        text-align: center
+        text-decoration: none
+        background-color: $primary
+        border: 1px solid $white
+
+        &:hover
+          background-color: $secondary
+
+        @media (min-width: $mobile)
+          float: right
+          width: auto
+          margin: 0
+
+
+      .stream
+        // display: none
+
+  .hide
+    display: none
+
+#lean_overlay
+  // position: fixed
+  z-index: 100
+  top: 0px
+  left: 50%
+  height: 50%
+  width: 50%
+  background: #000
+  color: #fff
+  display: none

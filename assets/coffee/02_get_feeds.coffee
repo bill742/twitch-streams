@@ -1,5 +1,5 @@
 getFeeds = ->
-    feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
+    feeds = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'habathcx', 'RobotCaleb', 'noobs2ninjas', 'noopkat']
 
     feeds.sort (a, b) ->
       a.toLowerCase().localeCompare b.toLowerCase()
